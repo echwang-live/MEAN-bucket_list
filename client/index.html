@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BucketList</title>
+	<script type="text/javascript" src = './static/js/angular.js'></script>
+	<script type="text/javascript" src = './static/js/angular-messages.js'></script>
+	<script type="text/javascript" src = './static/js/angular-route.js'></script>
+
+	<script type="text/javascript" src = './static/js/app.js'></script>
+
+	<script type="text/javascript" src='./static/js/factories/user.js'></script>
+	<script type="text/javascript" src='./static/js/factories/bucketList.js'></script>
+	
+	<script type="text/javascript" src= './static/js/controllers/bucketList.js'></script>
+</head>
+<body ng-app = 'myApp'>
+	<div id = "container" ng-controller="BucketListController as BCC">
+		<div ng-view=''>
+
+		</div>
+	</div>
+
+</body>
+</html>

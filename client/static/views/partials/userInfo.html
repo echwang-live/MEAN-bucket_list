@@ -1,0 +1,44 @@
+<div id="header">
+Bucket List
+<a href="#/dashboard">Home</a>
+<a href="#/logout" ng-click="BCC.logout()">Logout </a><br><hr>
+
+<span>{{BCC.userInfo.name}}'s Bucket List</span><br>
+
+<label>Pending</label><br>
+	<table>
+		<tr ng-repeat="list in BCC.userInfo._bucketList">
+			<td ng-show="list.completed == false">
+				{{BCC.userInfo.name}} | {{list.title}} - {{list.description}}
+			</td>
+		</tr>
+
+	</table>
+	
+
+	<!-- <ul>
+		<li ng-repeat="list in BCC.userInfo._bucketList">
+			<div ng-show="list.completed == false">
+				{{BCC.userInfo.name}} | {{list.title}} - {{list.description}}
+			</div>
+		</li>
+	</ul> -->
+
+<label>Done</label><br>
+	<table>
+		<tr ng-repeat="list in BCC.userInfo._bucketList">
+			<td ng-show="list.completed == true">
+				{{BCC.userInfo.name}} | {{list.title}} - {{list.description}}
+			</td>
+		</tr>
+	</table>
+
+
+	<!-- <ul>
+		<li ng-repeat="list in BCC.userInfo._bucketList">
+			<div ng-show="list.completed == true">
+				{{BCC.userInfo.name}} | {{list.title}} - {{list.description}}
+			</div>
+		</li>
+	</ul> -->
+</div>

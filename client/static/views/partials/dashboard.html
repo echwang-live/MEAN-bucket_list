@@ -1,0 +1,53 @@
+<div id="header">
+Bucket List
+<a href="#/dashboard">Home</a>
+<a href="#/logout" ng-click="BCC.logout()">Logout </a><br><hr>
+
+Welcome <span ng-bind="BCC.currentUser.name"></span>
+
+<form>
+	<input type="text" placeholder="Title" ng-model="BCC.newItem.title" autofocus>
+	<input type="text" placeholder="Description" ng-model="BCC.newItem.description">
+
+	<select
+		ng-init="BCC.newItem.taggedUser = BCC.allUsers[0]"
+		ng-model="BCC.newItem.taggedUser" 
+		ng-options="user.name for user in BCC.allUsers">
+	</select>
+
+	<input type="submit" value="Add to List" ng-click="BCC.addItemToList()">
+	<p ng-bind="BCC.titleError"></p>
+	<p ng-bind="BCC.descriptionError"></p>
+</form>
+
+</div>
+
+<div id="display">
+Before I die I want to
+	
+	<div id="show_list">
+		<table>
+			<tr ng-repeat="item in BCC.ownList._bucketList">
+				<td>
+					<input type="checkbox" ng-model="item.checked" ng-change="BCC.update(item)">
+					{{BCC.currentUser.name}} | 
+					<span ng-bind="item.title"></span>
+					<span ng-bind="item.description"></span>
+				</td>
+			</tr>
+		</table>
+	
+	</div>
+
+<br>
+List of logged users (Click to view profile):
+
+	<div id="show_users" ng-init="BCC.allUsers">
+		<ul>
+			<li ng-repeat="user in BCC.allUsers">
+				<a ng-href="#/users/{{user._id}}">{{user.name}}</a>
+			</li>
+		</ul>
+	</div>
+
+</div>
